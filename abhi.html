@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Isha ❤️</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+        color: #e91e63;
+        margin-bottom: 30px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+    }
+
+    #yes {
+        background: #e91e63;
+        color: white;
+    }
+
+    #no {
+        background: #ccc;
+        position: absolute;
+    }
+
+    .hearts span {
+        position: fixed;
+        bottom: -20px;
+        font-size: 24px;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    #music {
+        display: none;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+    <h1>Isha, will you be my Valentine? 💘</h1>
+    <button id="yes">Yes ❤️</button>
+    <button id="no">No 😅</button>
+
+    <div id="music">
+        <iframe width="300" height="170"
+        src="https://www.youtube.com/embed/8sLS2knUa6Y?autoplay=1"
+        allow="autoplay"></iframe>
+    </div>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+document.getElementById("yes").addEventListener("click", () => {
+    document.getElementById("box").innerHTML = `
+        <h1>I knew it! 💖🥰</h1>
+        <p>Happy Valentine’s Day, Isha 💕</p>
+        <div id="music">
+            <iframe width="300" height="170"
+            src="https://www.youtube.com/embed/8sLS2knUa6Y?autoplay=1"
+            allow="autoplay"></iframe>
+        </div>
+    `;
+    createHearts();
+});
+
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("span");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.rando
